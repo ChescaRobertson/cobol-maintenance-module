@@ -112,4 +112,8 @@ a lot of information or representing branching logic.
 
 ## Project 3: DWP
 
-### Logging
+This code is COBOL code received directly from DWP, along with associated
+documentation. Your task is to analyse this code to understand as much about
+it as possible. This will be a difficult challenge.
+
+Your coach will share a link to this exercise in a workshop.
