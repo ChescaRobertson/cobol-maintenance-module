@@ -1,10 +1,10 @@
-# Maintenance Week
+# Maintenance module
 
 Every time I have spoken to engineers about COBOL, they have told me that COBOL
 itself is far from the biggest challenge. The real challenge is working with
 legacy or mature codebases. These tend to be large, complex, and unfamiliar.
 
-This week you will learn and put into practice some techniques for working with
+This module you will learn and put into practice some techniques for working with
 mature software projects. The projects you will encounter in work will very
 likely be even larger than these.
 
