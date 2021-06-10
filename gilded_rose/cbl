@@ -82,7 +82,7 @@ function setup {
 
   if ! [ -d "modules/gcblunit" ]; then
     echo -e "${BLUE}Downloading and unpacking GCBLUnit 1.22.6...${CLR}"
-    curl -Ls "https://github.com/OlegKunitsyn/gcblunit/archive/1.22.6.tar.gz" | tar xz - -C modules/
+    curl -Ls "https://github.com/OlegKunitsyn/gcblunit/archive/1.22.6.tar.gz" | bsdtar -xf - -C modules/
     mv modules/gcblunit-* modules/gcblunit
     echo -e "${BLUE}Done.${CLR}"
   else
