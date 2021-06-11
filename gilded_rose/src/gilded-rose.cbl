@@ -23,20 +23,21 @@
 
        PROCEDURE DIVISION.
            OPEN INPUT FI-IN-ITEMS OUTPUT FI-OUT-ITEMS.
-
+          
        0100-START SECTION.
            READ FI-IN-ITEMS END GO TO 0200-END.
            MOVE FS-IN-ITEM TO FS-OUT-ITEM.
+           IF ITEM-NAME(1:8) NOT = "Sulfuras" 
+               SUBTRACT 1 FROM SELL-IN
+           END-IF.
       
        0110-AGED-BRIE SECTION.
            IF ITEM-NAME = "Aged Brie"
-               SUBTRACT 1 FROM SELL-IN
                ADD 1 TO QUALITY
            END-IF.
        
        0120-BACKSTAGE-PASS SECTION.
            IF ITEM-NAME(1:16) = "Backstage passes"
-             SUBTRACT 1 FROM SELL-IN
              IF SELL-IN = 0
                   SET QUALITY TO 0
              ELSE IF SELL-IN < 11
@@ -57,7 +58,6 @@
 
        0140-CONJURED SECTION.
            IF ITEM-NAME(1:8) = "Conjured"
-              SUBTRACT 1 FROM SELL-IN
               IF SELL-IN >= 0
                SUBTRACT 2 FROM QUALITY
               ELSE 
@@ -69,7 +69,6 @@
            AND ITEM-NAME(1:16) NOT = "Backstage passes" 
            AND ITEM-NAME(1:8) NOT  = "Sulfuras" 
            AND ITEM-NAME(1:8) NOT = "Conjured"
-           SUBTRACT 1 FROM SELL-IN
              IF SELL-IN >= 0
                SUBTRACT 1 FROM QUALITY
              ELSE 
