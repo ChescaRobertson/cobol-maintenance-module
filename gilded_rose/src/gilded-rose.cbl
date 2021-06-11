@@ -24,65 +24,75 @@
        PROCEDURE DIVISION.
            OPEN INPUT FI-IN-ITEMS OUTPUT FI-OUT-ITEMS.
 
-       0100-start SECTION.
-           READ FI-IN-ITEMS END GO TO 0200-end.
-             MOVE FS-IN-ITEM TO FS-OUT-ITEM.
-             IF ITEM-NAME NOT EQUAL "Aged Brie" AND ITEM-NAME NOT
-             EQUAL "Backstage passes to a TAFKAL80ETC concert"
-               IF QUALITY GREATER THAN 0
-                 IF ITEM-NAME NOT EQUAL TO "Sulfuras, Hand of Ragnaros"
-                   SUBTRACT 1 FROM QUALITY
-                 END-IF
-               END-IF
-             ELSE
-               IF QUALITY IS LESS THAN 50
-                 ADD 1 TO QUALITY
-                 IF ITEM-NAME EQUALS
-                 "Backstage passes to a TAFKAL80ETC concert"
-                   IF SELL-IN LESS THAN 11
-                     IF QUALITY LESS THAN 50
-                       ADD 1 TO QUALITY
-                     END-IF
-                   END-IF
-                   IF SELL-IN LESS THAN 6
-                     IF QUALITY LESS THAN 50
-                       ADD 1 TO QUALITY
-                     END-IF
-                   END-IF
-                 END-IF
-               END-IF
-             END-IF
-             IF ITEM-NAME NOT EQUAL "Sulfuras, Hand of Ragnaros"
+       0100-START SECTION.
+           READ FI-IN-ITEMS END GO TO 0200-END.
+           MOVE FS-IN-ITEM TO FS-OUT-ITEM.
+      
+       0110-AGED-BRIE SECTION.
+           IF ITEM-NAME = "Aged Brie"
                SUBTRACT 1 FROM SELL-IN
+               ADD 1 TO QUALITY
+           END-IF.
+       
+       0120-BACKSTAGE-PASS SECTION.
+           IF ITEM-NAME(1:16) = "Backstage passes"
+             SUBTRACT 1 FROM SELL-IN
+             IF SELL-IN = 0
+                  SET QUALITY TO 0
+             ELSE IF SELL-IN < 11
+                   ADD 2 TO QUALITY
+             ELSE IF SELL-IN < 6
+                    ADD 3 TO QUALITY
+             ELSE IF SELL-IN < 0
+                    SUBTRACT 2 FROM QUALITY
+             ELSE 
+                    ADD 1 TO QUALITY
              END-IF
-             IF SELL-IN IS LESS THAN 0
-               IF ITEM-NAME IS NOT EQUAL TO "Aged Brie"
-                 IF ITEM-NAME IS NOT EQUAL TO
-                 "Backstage passes to a TAFKAL80ETC concert"
-                   IF QUALITY IS GREATER THAN 0
-                     IF ITEM-NAME IS NOT EQUAL TO
-                     "Sulfuras, Hand of Ragnaros"
-                       SUBTRACT 1 FROM QUALITY
-                     END-IF
-                   END-IF
-                 ELSE
-                   SUBTRACT QUALITY FROM QUALITY
-                 END-IF
-               ELSE
-                 IF QUALITY IS LESS THAN 50
-                   ADD 1 TO QUALITY
-                 END-IF
-               END-IF
+           END-IF.
+
+       0130-SULFURAS SECTION.
+           IF ITEM-NAME(1:8) = "Sulfuras"
+             SET QUALITY TO 80
+           END-IF.
+
+       0140-CONJURED SECTION.
+           IF ITEM-NAME(1:8) = "Conjured"
+              SUBTRACT 1 FROM SELL-IN
+              IF SELL-IN >= 0
+               SUBTRACT 2 FROM QUALITY
+              ELSE 
+               SUBTRACT 4 FROM QUALITY
+           END-IF.
+       
+       0150-NORMAL-ITEMS SECTION.
+           IF ITEM-NAME NOT = "Aged Brie" 
+           AND ITEM-NAME(1:16) NOT = "Backstage passes" 
+           AND ITEM-NAME(1:8) NOT  = "Sulfuras" 
+           AND ITEM-NAME(1:8) NOT = "Conjured"
+           SUBTRACT 1 FROM SELL-IN
+             IF SELL-IN >= 0
+               SUBTRACT 1 FROM QUALITY
+             ELSE 
+               SUBTRACT 2 FROM QUALITY
              END-IF
-             WRITE FS-OUT-ITEM.
+           END-IF.
+
+       0160-WRITE SECTION.
+           IF ITEM-NAME(1:8) NOT = "Sulfuras" 
+           AND QUALITY > 50
+               SET QUALITY TO 50
+           END-IF. 
+           WRITE FS-OUT-ITEM.
            GO TO 0100-start.
 
-       0200-end SECTION.
+       0200-END SECTION.
            CLOSE FI-IN-ITEMS.
            CLOSE FI-OUT-ITEMS.
 
-       0300-return SECTION.
-           GOBACK.
+
+      * 0300-return SECTION.
+      *     GOBACK.
+       
 
 
 

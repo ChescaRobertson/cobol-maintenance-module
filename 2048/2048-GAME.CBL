@@ -87,12 +87,12 @@
       * THESE VALUES ARE USED TO TEST FOR AN INCOMPLETE
       * CHANGE TO THE SIZE OF THE GAME-GRID.  CHANGING ONLY
       * THE GRID AND THESE DIMENSIONS IS NOT SUFFICIENT.
-           05  NUMBER-OF-ROWS               PIC 9 VALUE 4.
-           05  NUMBER-OF-COLS               PIC 9 VALUE 4.
+           05  NUMBER-OF-ROWS               PIC 9 VALUE 6.
+           05  NUMBER-OF-COLS               PIC 9 VALUE 6.
 
        01  GAME-GRID.
-           05  GRID-ROW OCCURS 4 TIMES INDEXED BY ROW-INDEX.
-               10  GRID-COL OCCURS 4 TIMES INDEXED BY COL-INDEX.
+           05  GRID-ROW OCCURS 6 TIMES INDEXED BY ROW-INDEX.
+               10  GRID-COL OCCURS 6 TIMES INDEXED BY COL-INDEX.
                    15  GRID-CELL            PIC 9999 VALUE ZERO.
 
       * UNSUCCESSFUL ATTEMPT TO ADD COLORS
@@ -103,7 +103,7 @@
       *            15  COLOR-CELL           PIC 9 VALUE 1.
 
        01  UPDATED-GROUP.
-           05  UPDATED-SET OCCURS 4 TIMES INDEXED BY UPDATED-INDEX
+           05  UPDATED-SET OCCURS 6 TIMES INDEXED BY UPDATED-INDEX
                                             PIC 9999 VALUE ZERO.
        01  PRIOR-TILE                       PIC 9999 VALUE ZERO.
 
@@ -200,6 +200,10 @@
                    FROM GRID-CELL (1, 3).
                10  GRID-DISPLAY-14 LINE 4 COLUMN 17 PIC ZZZ9
                    FROM GRID-CELL (1, 4).
+               10  GRID-DISPLAY-15 LINE 4 COLUMN 22 PIC ZZZ9
+                   FROM GRID-CELL (1, 5).
+               10  GRID-DISPLAY-16 LINE 4 COLUMN 27 PIC ZZZ9
+                   FROM GRID-CELL (1, 6).
                10  GRID-DISPLAY-21 LINE 6 COLUMN 2 PIC ZZZ9
                    FROM GRID-CELL (2, 1).
                10  GRID-DISPLAY-22 LINE 6 COLUMN 7 PIC ZZZ9
@@ -208,6 +212,10 @@
                    FROM GRID-CELL (2, 3).
                10  GRID-DISPLAY-24 LINE 6 COLUMN 17 PIC ZZZ9
                    FROM GRID-CELL (2, 4).
+               10  GRID-DISPLAY-25 LINE 6 COLUMN 22 PIC ZZZ9
+                   FROM GRID-CELL (2, 5).
+               10  GRID-DISPLAY-26 LINE 6 COLUMN 27 PIC ZZZ9
+                   FROM GRID-CELL (2, 6).
                10  GRID-DISPLAY-31 LINE 8 COLUMN 2 PIC ZZZ9
                    FROM GRID-CELL (3, 1).
                10  GRID-DISPLAY-32 LINE 8 COLUMN 7 PIC ZZZ9
@@ -216,6 +224,10 @@
                    FROM GRID-CELL (3, 3).
                10  GRID-DISPLAY-34 LINE 8 COLUMN 17 PIC ZZZ9
                    FROM GRID-CELL (3, 4).
+               10  GRID-DISPLAY-35 LINE 8 COLUMN 22 PIC ZZZ9
+                   FROM GRID-CELL (3, 5).
+               10  GRID-DISPLAY-36 LINE 8 COLUMN 27 PIC ZZZ9
+                   FROM GRID-CELL (3, 6).
                10  GRID-DISPLAY-41 LINE 10 COLUMN 2 PIC ZZZ9
                    FROM GRID-CELL (4, 1).
                10  GRID-DISPLAY-42 LINE 10 COLUMN 7 PIC ZZZ9
@@ -224,6 +236,34 @@
                    FROM GRID-CELL (4, 3).
                10  GRID-DISPLAY-44 LINE 10 COLUMN 17 PIC ZZZ9
                    FROM GRID-CELL (4, 4).
+               10  GRID-DISPLAY-45 LINE 10 COLUMN 22 PIC ZZZ9
+                   FROM GRID-CELL (4, 5).
+               10  GRID-DISPLAY-46 LINE 10 COLUMN 27 PIC ZZZ9
+                   FROM GRID-CELL (4, 6).
+               10  GRID-DISPLAY-51 LINE 10 COLUMN 2 PIC ZZZ9
+                   FROM GRID-CELL (5, 1).
+               10  GRID-DISPLAY-52 LINE 10 COLUMN 7 PIC ZZZ9
+                   FROM GRID-CELL (5, 2).
+               10  GRID-DISPLAY-53 LINE 10 COLUMN 12 PIC ZZZ9
+                   FROM GRID-CELL (5, 3).
+               10  GRID-DISPLAY-54 LINE 10 COLUMN 17 PIC ZZZ9
+                   FROM GRID-CELL (5, 4).
+               10  GRID-DISPLAY-55 LINE 10 COLUMN 22 PIC ZZZ9
+                   FROM GRID-CELL (5, 5).
+               10  GRID-DISPLAY-56 LINE 10 COLUMN 27 PIC ZZZ9
+                   FROM GRID-CELL (5, 6).  
+               10  GRID-DISPLAY-61 LINE 10 COLUMN 2 PIC ZZZ9
+                   FROM GRID-CELL (6, 1).
+               10  GRID-DISPLAY-62 LINE 10 COLUMN 7 PIC ZZZ9
+                   FROM GRID-CELL (6, 2).
+               10  GRID-DISPLAY-63 LINE 10 COLUMN 12 PIC ZZZ9
+                   FROM GRID-CELL (6, 3).
+               10  GRID-DISPLAY-64 LINE 10 COLUMN 17 PIC ZZZ9
+                   FROM GRID-CELL (6, 4).
+               10  GRID-DISPLAY-65 LINE 10 COLUMN 22 PIC ZZZ9
+                   FROM GRID-CELL (6, 5).
+               10  GRID-DISPLAY-66 LINE 10 COLUMN 27 PIC ZZZ9
+                   FROM GRID-CELL (6, 6).                                    
                10  LINE 12 COLUMN  4 VALUE 'CHOICE:'.
                10  DISPLAY-UP-COMMAND    LINE 13 COLUMN 12 PIC X(9).
                10  DISPLAY-DOWN-COMMAND  LINE 14 COLUMN 12 PIC X(9).
@@ -352,9 +392,9 @@
            COMPUTE RANDOM-NUMBER = FUNCTION RANDOM * EMPTY-COUNT + 1
            MOVE ZERO TO CELL-COUNT
            PERFORM VARYING ROW-INDEX FROM 1 BY 1
-               UNTIL ROW-INDEX > 4 OR CELL-COUNT >= RANDOM-NUMBER
+               UNTIL ROW-INDEX > 6 OR CELL-COUNT >= RANDOM-NUMBER
                PERFORM VARYING COL-INDEX FROM 1 BY 1
-               UNTIL COL-INDEX > 4 OR CELL-COUNT >= RANDOM-NUMBER
+               UNTIL COL-INDEX > 6 OR CELL-COUNT >= RANDOM-NUMBER
                    IF GRID-CELL (ROW-INDEX, COL-INDEX) = ZERO
                        ADD 1 TO CELL-COUNT
                    END-IF
@@ -381,10 +421,10 @@
            MOVE ZERO TO EMPTY-COUNT
 
            SET ROW-INDEX TO ZERO
-           PERFORM 4 TIMES
+           PERFORM 6 TIMES
                SET ROW-INDEX UP BY 1
                SET COL-INDEX TO ZERO
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                SET COL-INDEX UP BY 1
                    IF GRID-CELL (ROW-INDEX, COL-INDEX) = ZERO
                        ADD 1 TO EMPTY-COUNT
@@ -541,10 +581,10 @@
        GET-CURRENT-SCORE.
            MOVE ZERO TO CURRENT-SCORE
            SET ROW-INDEX TO ZERO
-           PERFORM 4 TIMES
+           PERFORM 6 TIMES
                SET ROW-INDEX UP BY 1
                SET COL-INDEX TO ZERO
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                    SET COL-INDEX UP BY 1
                    IF GRID-CELL (ROW-INDEX, COL-INDEX) > CURRENT-SCORE
                        MOVE GRID-CELL (ROW-INDEX, COL-INDEX)
@@ -590,19 +630,19 @@
 
        SLIDE-UP.
            SET COL-INDEX TO ZERO
-           PERFORM 4 TIMES
+           PERFORM 6 TIMES
                SET COL-INDEX UP BY 1
                MOVE ZERO TO PRIOR-TILE
 
                SET UPDATED-INDEX TO ZERO
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                    SET UPDATED-INDEX UP BY 1
                    MOVE ZERO TO UPDATED-SET (UPDATED-INDEX)
                END-PERFORM
 
                SET UPDATED-INDEX TO 1
                SET ROW-INDEX TO ZERO
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                    SET ROW-INDEX UP BY 1
                    IF GRID-CELL (ROW-INDEX, COL-INDEX) NOT = 0
                        IF GRID-CELL (ROW-INDEX, COL-INDEX) = PRIOR-TILE
@@ -619,7 +659,7 @@
                END-PERFORM
 
                SET UPDATED-INDEX TO ZERO
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                    SET UPDATED-INDEX UP BY 1
                    MOVE UPDATED-SET (UPDATED-INDEX)
                      TO GRID-CELL (UPDATED-INDEX, COL-INDEX)
@@ -630,19 +670,19 @@
 
        SLIDE-DOWN.
            SET COL-INDEX TO ZERO
-           PERFORM 4 TIMES
+           PERFORM 6 TIMES
                SET COL-INDEX UP BY 1
                MOVE ZERO TO PRIOR-TILE
 
                SET UPDATED-INDEX TO ZERO
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                    SET UPDATED-INDEX UP BY 1
                    MOVE ZERO TO UPDATED-SET (UPDATED-INDEX)
                END-PERFORM
 
-               SET UPDATED-INDEX TO 4
+               SET UPDATED-INDEX TO 6
                SET ROW-INDEX TO 5
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                    SET ROW-INDEX DOWN BY 1
                    IF GRID-CELL (ROW-INDEX, COL-INDEX) NOT = 0
                        IF GRID-CELL (ROW-INDEX, COL-INDEX) = PRIOR-TILE
@@ -659,7 +699,7 @@
                END-PERFORM
 
                SET UPDATED-INDEX TO ZERO
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                    SET UPDATED-INDEX UP BY 1
                    MOVE UPDATED-SET (UPDATED-INDEX)
                      TO GRID-CELL (UPDATED-INDEX, COL-INDEX)
@@ -670,19 +710,19 @@
 
        SLIDE-LEFT.
            SET ROW-INDEX TO ZERO
-           PERFORM 4 TIMES
+           PERFORM 6 TIMES
                SET ROW-INDEX UP BY 1
                MOVE ZERO TO PRIOR-TILE
 
                SET UPDATED-INDEX TO ZERO
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                    SET UPDATED-INDEX UP BY 1
                    MOVE ZERO TO UPDATED-SET (UPDATED-INDEX)
                END-PERFORM
 
                SET UPDATED-INDEX TO 1
                SET COL-INDEX TO ZERO
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                    SET COL-INDEX UP BY 1
                    IF GRID-CELL (ROW-INDEX, COL-INDEX) NOT = 0
                        IF GRID-CELL (ROW-INDEX, COL-INDEX) = PRIOR-TILE
@@ -699,7 +739,7 @@
                END-PERFORM
 
                SET UPDATED-INDEX TO ZERO
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                    SET UPDATED-INDEX UP BY 1
                    MOVE UPDATED-SET (UPDATED-INDEX)
                      TO GRID-CELL (ROW-INDEX, UPDATED-INDEX)
@@ -710,19 +750,19 @@
 
        SLIDE-RIGHT.
            SET ROW-INDEX TO ZERO
-           PERFORM 4 TIMES
+           PERFORM 6 TIMES
                SET ROW-INDEX UP BY 1
                MOVE ZERO TO PRIOR-TILE
 
                SET UPDATED-INDEX TO ZERO
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                    SET UPDATED-INDEX UP BY 1
                    MOVE ZERO TO UPDATED-SET (UPDATED-INDEX)
                END-PERFORM
 
-               SET UPDATED-INDEX TO 4
+               SET UPDATED-INDEX TO 6
                SET COL-INDEX TO 5
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                    SET COL-INDEX DOWN BY 1
                    IF GRID-CELL (ROW-INDEX, COL-INDEX) NOT = 0
                        IF GRID-CELL (ROW-INDEX, COL-INDEX) = PRIOR-TILE
@@ -739,7 +779,7 @@
                END-PERFORM
 
                SET UPDATED-INDEX TO ZERO
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                    SET UPDATED-INDEX UP BY 1
                    MOVE UPDATED-SET (UPDATED-INDEX)
                      TO GRID-CELL (ROW-INDEX, UPDATED-INDEX)
@@ -750,10 +790,10 @@
 
        CHECK-IF-WIN.
            SET ROW-INDEX TO ZERO
-           PERFORM 4 TIMES
+           PERFORM 6 TIMES
                SET ROW-INDEX UP BY 1
                SET COL-INDEX TO ZERO
-               PERFORM 4 TIMES
+               PERFORM 6 TIMES
                    SET COL-INDEX UP BY 1
                    IF GRID-CELL (ROW-INDEX, COL-INDEX) = 2048
                        MOVE WIN-MESSAGE TO GRID-MESSAGE
