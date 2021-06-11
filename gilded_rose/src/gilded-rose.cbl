@@ -90,9 +90,5 @@
            CLOSE FI-OUT-ITEMS.
 
 
-      * 0300-return SECTION.
-      *     GOBACK.
-       
-
 
 
