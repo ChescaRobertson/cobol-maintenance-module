@@ -49,10 +49,10 @@
        0120-BACKSTAGE-PASS.
            IF SELL-IN = 0
                SET QUALITY TO 0
-           ELSE IF SELL-IN < 11
-               ADD 2 TO QUALITY
            ELSE IF SELL-IN < 6
                ADD 3 TO QUALITY
+           ELSE IF SELL-IN < 11
+               ADD 2 TO QUALITY
            ELSE IF SELL-IN < 0
                SUBTRACT 2 FROM QUALITY
            ELSE 
