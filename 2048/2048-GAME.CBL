@@ -71,9 +71,9 @@
            05 NUM-COLOUR OCCURS 36 TIMES   
            ASCENDING KEY IS COLOUR 
            INDEXED BY COLOUR-IDX.
-               10 COLOUR   UNSIGNED-INT.
+               10 COLOUR   PIC 9 VALUE 7.
 
-       01  COUNTER         UNSIGNED-INT.
+       01  COUNTER         PIC 99.
        01  OFFSET          UNSIGNED-INT.
             
 
@@ -204,7 +204,7 @@
 
            10  GRID-DISPLAY-11 LINE 4 COLUMN 2 PIC ZZZ9
                FROM GRID-CELL (1, 1)
-               FOREGROUND-COLOR IS 5.
+               FOREGROUND-COLOR IS COLOUR(1).
            10  GRID-DISPLAY-12 LINE 4 COLUMN 7 PIC ZZZ9
                FROM GRID-CELL (1, 2)
                FOREGROUND-COLOR IS COLOUR(2).
@@ -424,14 +424,15 @@
                PERFORM PLACE-NEW-TILE
            END-IF
   
-           PERFORM COLOUR-CHECK
+      *     PERFORM COLOUR-CHECK
            DISPLAY GAME-GRID-SCREEN
            PERFORM HANDLE-USER-ENTRY
            PERFORM CHECK-IF-WIN
            .
 
        COLOUR-CHECK.  
-           MOVE 7 TO NUM-COLOURS.     
+           MOVE 7 TO NUM-COLOURS.  
+           DISPLAY "Before loop COLOUR(1): " COLOUR(1)   
            SET COUNTER TO 0.
            SET ROW-INDEX TO ZERO
            PERFORM 6 TIMES
@@ -440,29 +441,30 @@
                PERFORM 6 TIMES
                SET COL-INDEX UP BY 1
                ADD 1 TO COUNTER
-               SET COLOUR(1) TO 7
-               IF GRID-CELL (ROW-INDEX, COL-INDEX) = 0
-                    MOVE 7 TO COLOUR(COUNTER)
-               END-IF
-              *>  ELSE IF GRID-CELL (ROW-INDEX, COL-INDEX) = 2
-              *>       MOVE 2 TO COLOUR(COUNTER)
-              *>  ELSE IF GRID-CELL (ROW-INDEX, COL-INDEX) = 4
-              *>      MOVE 3 TO COLOUR(COUNTER)
-              *>  ELSE IF GRID-CELL (ROW-INDEX, COL-INDEX) = 8
-              *>       MOVE 4 TO COLOUR(COUNTER)
-              *>  ELSE IF GRID-CELL (ROW-INDEX, COL-INDEX) = 16
-              *>       MOVE 5 TO COLOUR(COUNTER)
-              *>  ELSE IF GRID-CELL (ROW-INDEX, COL-INDEX) = 32
-              *>       MOVE 6 TO COLOUR(COUNTER)
-              *>  ELSE IF GRID-CELL (ROW-INDEX, COL-INDEX) = 64
-              *>       MOVE 2 TO COLOUR(COUNTER)
-              *>  END-IF
-               DISPLAY "COUNTER:" COUNTER
-               DISPLAY "ROW-INDEX:" ROW-INDEX
-               DISPLAY "COL-INDEX:" COL-INDEX
-               DISPLAY "COLOUR" COLOUR(COUNTER)
+                      IF GRID-CELL (ROW-INDEX, COL-INDEX) = 2
+                           MOVE 2 TO COLOUR(COUNTER)
+                      ELSE IF GRID-CELL (ROW-INDEX, COL-INDEX) = 4
+                           MOVE 3 TO COLOUR(COUNTER)
+                      ELSE IF GRID-CELL (ROW-INDEX, COL-INDEX) = 8
+                           MOVE 4 TO COLOUR(COUNTER)
+                      ELSE IF GRID-CELL (ROW-INDEX, COL-INDEX) = 16
+                           MOVE 5 TO COLOUR(COUNTER)
+                      ELSE IF GRID-CELL (ROW-INDEX, COL-INDEX) = 32
+                           MOVE 6 TO COLOUR(COUNTER)
+                      ELSE IF GRID-CELL (ROW-INDEX, COL-INDEX) = 64
+                           MOVE 2 TO COLOUR(COUNTER)
+                      ELSE 
+                          MOVE 7 TO COLOUR(COUNTER)
+                      END-IF
+                 DISPLAY "COUNTER:" COUNTER
+                 DISPLAY "ROW-INDEX:" ROW-INDEX
+                 DISPLAY "COL-INDEX:" COL-INDEX
+                 DISPLAY "COLOUR" COLOUR(COUNTER)
+                 DISPLAY "In loop COLOUR(1): " COLOUR(1)
                END-PERFORM
            END-PERFORM
+           DISPLAY "After loop COLOUR(1): " COLOUR(1)
+           DISPLAY NUM-COLOURS
            .
           
 
@@ -881,6 +883,7 @@
                SET COL-INDEX TO ZERO
                PERFORM 6 TIMES
                    SET COL-INDEX UP BY 1
+                   ADD 1 TO COUNTER
                    IF GRID-CELL (ROW-INDEX, COL-INDEX) = 2048
                        MOVE WIN-MESSAGE TO GRID-MESSAGE
                        PERFORM COLOUR-CHECK
