@@ -31,20 +31,20 @@
                SUBTRACT 1 FROM SELL-IN
            END-IF.
            IF ITEM-NAME = "Aged Brie"
-              PERFORM 0110-AGED-BRIE
+               GO TO 0110-AGED-BRIE
            ELSE IF ITEM-NAME(1:16) = "Backstage passes"
-               PERFORM 0120-BACKSTAGE-PASS
+               GO TO 0120-BACKSTAGE-PASS
            ELSE IF ITEM-NAME(1:8) = "Sulfuras"
-               PERFORM 0130-SULFURAS
+               GO TO 0130-SULFURAS
            ELSE IF ITEM-NAME(1:8) = "Conjured"
-               PERFORM 0140-CONJURED
+               GO TO 0140-CONJURED
            ELSE 
-               PERFORM 0150-NORMAL-ITEMS
+               GO TO 0150-NORMAL-ITEMS
            END-IF.
       
        0110-AGED-BRIE.
            ADD 1 TO QUALITY.
-           PERFORM 0160-WRITE.
+           GO TO 0160-WRITE.
        
        0120-BACKSTAGE-PASS.
            IF SELL-IN = 0
@@ -58,11 +58,11 @@
            ELSE 
                ADD 1 TO QUALITY
            END-IF.
-           PERFORM 0160-WRITE.
+           GO TO 0160-WRITE.
 
        0130-SULFURAS.
            SET QUALITY TO 80.
-           PERFORM 0160-WRITE.
+           GO TO 0160-WRITE.
 
        0140-CONJURED.
            IF SELL-IN >= 0
@@ -70,7 +70,7 @@
            ELSE 
                SUBTRACT 4 FROM QUALITY
            END-IF.
-           PERFORM 0160-WRITE.
+           GO TO 0160-WRITE.
        
        0150-NORMAL-ITEMS.
            IF SELL-IN >= 0
@@ -78,15 +78,18 @@
            ELSE 
               SUBTRACT 2 FROM QUALITY
            END-IF.
-           PERFORM 0160-WRITE.
+           GO TO 0160-WRITE.
 
        0160-WRITE.
            IF ITEM-NAME(1:8) NOT = "Sulfuras" 
            AND QUALITY > 50
                SET QUALITY TO 50
            END-IF. 
+           IF QUALITY < 0
+               SET QUALITY TO 0
+           END-IF.
            WRITE FS-OUT-ITEM.
-           GO TO 0100-start.
+           GO TO 0100-START.
 
        0200-END.
            CLOSE FI-IN-ITEMS.
