@@ -424,7 +424,7 @@
                PERFORM PLACE-NEW-TILE
            END-IF
   
-      *     PERFORM COLOUR-CHECK
+           PERFORM COLOUR-CHECK
            DISPLAY GAME-GRID-SCREEN
            PERFORM HANDLE-USER-ENTRY
            PERFORM CHECK-IF-WIN
