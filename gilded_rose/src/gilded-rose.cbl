@@ -48,15 +48,15 @@
        
        0120-BACKSTAGE-PASS.
            IF SELL-IN = 0
-                  SET QUALITY TO 0
-             ELSE IF SELL-IN < 11
-                   ADD 2 TO QUALITY
-             ELSE IF SELL-IN < 6
-                    ADD 3 TO QUALITY
-             ELSE IF SELL-IN < 0
-                    SUBTRACT 2 FROM QUALITY
-             ELSE 
-                    ADD 1 TO QUALITY
+               SET QUALITY TO 0
+           ELSE IF SELL-IN < 11
+               ADD 2 TO QUALITY
+           ELSE IF SELL-IN < 6
+               ADD 3 TO QUALITY
+           ELSE IF SELL-IN < 0
+               SUBTRACT 2 FROM QUALITY
+           ELSE 
+               ADD 1 TO QUALITY
            END-IF.
            PERFORM 0160-WRITE.
 
@@ -67,16 +67,16 @@
        0140-CONJURED.
            IF SELL-IN >= 0
                SUBTRACT 2 FROM QUALITY
-              ELSE 
+           ELSE 
                SUBTRACT 4 FROM QUALITY
            END-IF.
            PERFORM 0160-WRITE.
        
        0150-NORMAL-ITEMS.
            IF SELL-IN >= 0
-               SUBTRACT 1 FROM QUALITY
+              SUBTRACT 1 FROM QUALITY
            ELSE 
-               SUBTRACT 2 FROM QUALITY
+              SUBTRACT 2 FROM QUALITY
            END-IF.
            PERFORM 0160-WRITE.
 
