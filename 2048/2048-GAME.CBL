@@ -88,6 +88,7 @@
            88  USER-CHOSE-QUIT              VALUE 'Q'.
            88  USER-CHOSE-SET-COMMANDS      VALUE 'C'.
            88  USER-CHOSE-HIGH-SCORES       VALUE 'H'.
+           88  USER-CHOSE-RULES             VALUE 'R'.
 
        01  GRID-DIMENSIONS.
       * CHANGING THE DIMENSIONS OF GAME-GRID WOULD REQUIRE
@@ -319,24 +320,44 @@
            10  LINE 24 COLUMN  4 VALUE 'CHOICE:'
                FOREGROUND-COLOR IS 6.
            10  DISPLAY-UP-COMMAND    LINE 26 COLUMN 12 PIC X(9)
-               FOREGROUND-COLOR IS 7.
+               FOREGROUND-COLOR IS 6.
            10  DISPLAY-DOWN-COMMAND  LINE 27 COLUMN 12 PIC X(9)
-               FOREGROUND-COLOR IS 7.
+               FOREGROUND-COLOR IS 6.
            10  DISPLAY-LEFT-COMMAND  LINE 28 COLUMN 12 PIC X(9)
-               FOREGROUND-COLOR IS 7.
+               FOREGROUND-COLOR IS 6.
            10  DISPLAY-RIGHT-COMMAND LINE 29 COLUMN 12 PIC X(9)
-               FOREGROUND-COLOR IS 7.
-           10  LINE 31 COLUMN 12 VALUE 'C - CHANGE CONTROLS'
                FOREGROUND-COLOR IS 6.
-           10  LINE 32 COLUMN 12 VALUE 'H - HIGH SCORES'
+           10  LINE 26 COLUMN 36 VALUE 'C - CHANGE CONTROLS'
                FOREGROUND-COLOR IS 6.
-           10  LINE 33 COLUMN 12 VALUE 'Q - QUIT'
+           10  LINE 27 COLUMN 36 VALUE 'H - HIGH SCORES'
                FOREGROUND-COLOR IS 6.
-           10  GRID-MESSAGE LINE 35 COLUMN 4     PIC X(47)
+           10  LINE 28 COLUMN 36 VALUE 'Q - QUIT'
+               FOREGROUND-COLOR IS 6.
+           10  GRID-MESSAGE LINE 30 COLUMN 4     PIC X(47)
                FOREGROUND-COLOR IS 6.
            05  GRID-INPUT.
                10  USER-INPUT LINE 24 COLUMN 12    PIC X(10)
                    USING USER-ENTRY.
+
+           05  LINE 1 COLUMN 36 VALUE '----------------------------'
+               FOREGROUND-COLOR IS 6. 
+           05  LINE 5 COLUMN 42 VALUE "How to Play 2048"
+               FOREGROUND-COLOR IS 5.
+           05  LINE 9 COLUMN 36 VALUE '----------------------------'
+               FOREGROUND-COLOR IS 6. 
+
+           05  LINE 11 COLUMN 36 VALUE "Use your control keys to "
+               FOREGROUND-COLOR IS 7.
+           05  LINE 13 COLUMN 36 VALUE "move the tiles. Tiles with "
+               FOREGROUND-COLOR IS 7.
+           05  LINE 15 COLUMN 36 VALUE "the same number merge into "
+               FOREGROUND-COLOR IS 7.
+           05  LINE 17 COLUMN 36 VALUE "one when they touch. Add "
+               FOREGROUND-COLOR IS 7.
+           05  LINE 19 COLUMN 36 VALUE "them up to reach 2048!"
+               FOREGROUND-COLOR IS 7.
+           05  LINE 21 COLUMN 36 VALUE '----------------------------'
+               FOREGROUND-COLOR IS 6. 
 
        01  CONTROLS-SCREEN.
            05  BLANK SCREEN.
@@ -624,7 +645,7 @@
            END-EVALUATE
            MOVE SPACES TO USER-ENTRY
            .
-
+       
        CHANGE-CONTROLS.
            ACCEPT CONTROLS-SCREEN
            MOVE FUNCTION UPPER-CASE(CONTROL-UP)    TO CONTROL-UP
