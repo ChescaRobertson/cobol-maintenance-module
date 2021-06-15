@@ -182,161 +182,243 @@
        01  GAME-GRID-SCREEN.
            05  BLANK SCREEN.
            05  GRID-SCREEN.
-               10  LINE 2 COLUMN 10 VALUE '2048'.
+           10  LINE 1 COLUMN 4 VALUE '----------------------------'
+               FOREGROUND-COLOR IS 6. 
+           10  LINE 2 COLUMN 6 VALUE " ___   ___  _  _   ___ "
+               FOREGROUND-COLOR IS 5.
+           10  LINE 3 COLUMN 6 VALUE "|__ \ / _ \| || | / _ \"
+               FOREGROUND-COLOR IS 5.
+           10  LINE 4 COLUMN 6 VALUE "   ) | | | | || || (_) |"
+               FOREGROUND-COLOR IS 5.
+           10  LINE 5 COLUMN 6 VALUE "  / /| | | |__   _> _ < "
+               FOREGROUND-COLOR IS 5.
+           10  LINE 6 COLUMN 6 VALUE " / /_| |_| |  | || (_) |"
+               FOREGROUND-COLOR IS 5.
+           10  LINE 7 COLUMN 6 VALUE "|____|\___/   |_| \___/" 
+               FOREGROUND-COLOR IS 5.
+         
+           10  LINE 9 COLUMN 4 VALUE '----------------------------'
+               FOREGROUND-COLOR IS 6. 
+         
   
-           10  GRID-DISPLAY-11 LINE 4 COLUMN 2 PIC ZZZ9
+           10  GRID-DISPLAY-11 LINE 10 COLUMN 2 PIC ZZZ9
                FROM GRID-CELL (1, 1)
                FOREGROUND-COLOR IS COLOUR(1).
-           10  GRID-DISPLAY-11 LINE 4 COLUMN 2 PIC ZZZ9
+           10  GRID-DISPLAY-11 LINE 10 COLUMN 2 PIC ZZZ9
                FROM GRID-CELL (1, 1)
                FOREGROUND-COLOR IS COLOUR(1).
-           10  GRID-DISPLAY-12 LINE 4 COLUMN 7 PIC ZZZ9
+           10  GRID-DISPLAY-12 LINE 10 COLUMN 7 PIC ZZZ9
                FROM GRID-CELL (1, 2)
                FOREGROUND-COLOR IS COLOUR(2).
-           10  GRID-DISPLAY-13 LINE 4 COLUMN 12 PIC ZZZ9
+           10  GRID-DISPLAY-13 LINE 10 COLUMN 12 PIC ZZZ9
                FROM GRID-CELL (1, 3)
                FOREGROUND-COLOR IS COLOUR(3).
-           10  GRID-DISPLAY-14 LINE 4 COLUMN 17 PIC ZZZ9
+           10  GRID-DISPLAY-14 LINE 10 COLUMN 17 PIC ZZZ9
                FROM GRID-CELL (1, 4)
                FOREGROUND-COLOR IS COLOUR(4).
-           10  GRID-DISPLAY-15 LINE 4 COLUMN 22 PIC ZZZ9
+           10  GRID-DISPLAY-15 LINE 10 COLUMN 22 PIC ZZZ9
                FROM GRID-CELL (1, 5)
                FOREGROUND-COLOR IS COLOUR(5).
-           10  GRID-DISPLAY-16 LINE 4 COLUMN 27 PIC ZZZ9
+           10  GRID-DISPLAY-16 LINE 10 COLUMN 27 PIC ZZZ9
                FROM GRID-CELL (1, 6)
                FOREGROUND-COLOR IS COLOUR(6).
-           10  GRID-DISPLAY-21 LINE 6 COLUMN 2 PIC ZZZ9
+           10  GRID-DISPLAY-21 LINE 12 COLUMN 2 PIC ZZZ9
                FROM GRID-CELL (2, 1)
                FOREGROUND-COLOR IS COLOUR(7).
-           10  GRID-DISPLAY-22 LINE 6 COLUMN 7 PIC ZZZ9
+           10  GRID-DISPLAY-22 LINE 12 COLUMN 7 PIC ZZZ9
                FROM GRID-CELL (2, 2)
                FOREGROUND-COLOR IS COLOUR(8).
-           10  GRID-DISPLAY-23 LINE 6 COLUMN 12 PIC ZZZ9
+           10  GRID-DISPLAY-23 LINE 12 COLUMN 12 PIC ZZZ9
                FROM GRID-CELL (2, 3)
                FOREGROUND-COLOR IS COLOUR(9).
-           10  GRID-DISPLAY-24 LINE 6 COLUMN 17 PIC ZZZ9
+           10  GRID-DISPLAY-24 LINE 12 COLUMN 17 PIC ZZZ9
                FROM GRID-CELL (2, 4)
                FOREGROUND-COLOR IS COLOUR(10).
-           10  GRID-DISPLAY-25 LINE 6 COLUMN 22 PIC ZZZ9
+           10  GRID-DISPLAY-25 LINE 12 COLUMN 22 PIC ZZZ9
                FROM GRID-CELL (2, 5)
                FOREGROUND-COLOR IS COLOUR(11).
-           10  GRID-DISPLAY-26 LINE 6 COLUMN 27 PIC ZZZ9
+           10  GRID-DISPLAY-26 LINE 12 COLUMN 27 PIC ZZZ9
                FROM GRID-CELL (2, 6)
                FOREGROUND-COLOR IS COLOUR(12).
-           10  GRID-DISPLAY-31 LINE 8 COLUMN 2 PIC ZZZ9
+           10  GRID-DISPLAY-31 LINE 14 COLUMN 2 PIC ZZZ9
                FROM GRID-CELL (3, 1)
                FOREGROUND-COLOR IS COLOUR(13).
-           10  GRID-DISPLAY-32 LINE 8 COLUMN 7 PIC ZZZ9
+           10  GRID-DISPLAY-32 LINE 14 COLUMN 7 PIC ZZZ9
                FROM GRID-CELL (3, 2)
                FOREGROUND-COLOR IS COLOUR(14).
-           10  GRID-DISPLAY-33 LINE 8 COLUMN 12 PIC ZZZ9
+           10  GRID-DISPLAY-33 LINE 14 COLUMN 12 PIC ZZZ9
                FROM GRID-CELL (3, 3)
                FOREGROUND-COLOR IS COLOUR(15).
-           10  GRID-DISPLAY-34 LINE 8 COLUMN 17 PIC ZZZ9
+           10  GRID-DISPLAY-34 LINE 14 COLUMN 17 PIC ZZZ9
                FROM GRID-CELL (3, 4)
                FOREGROUND-COLOR IS COLOUR(16).
-           10  GRID-DISPLAY-35 LINE 8 COLUMN 22 PIC ZZZ9
+           10  GRID-DISPLAY-35 LINE 14 COLUMN 22 PIC ZZZ9
                FROM GRID-CELL (3, 5)
                FOREGROUND-COLOR IS COLOUR(17).
-           10  GRID-DISPLAY-36 LINE 8 COLUMN 27 PIC ZZZ9
+           10  GRID-DISPLAY-36 LINE 14 COLUMN 27 PIC ZZZ9
                FROM GRID-CELL (3, 6)
                FOREGROUND-COLOR IS COLOUR(18).
-           10  GRID-DISPLAY-41 LINE 10 COLUMN 2 PIC ZZZ9
+           10  GRID-DISPLAY-41 LINE 16 COLUMN 2 PIC ZZZ9
                FROM GRID-CELL (4, 1)
                FOREGROUND-COLOR IS COLOUR(19).
-           10  GRID-DISPLAY-42 LINE 10 COLUMN 7 PIC ZZZ9
+           10  GRID-DISPLAY-42 LINE 16 COLUMN 7 PIC ZZZ9
                FROM GRID-CELL (4, 2)
                FOREGROUND-COLOR IS COLOUR(20).
-           10  GRID-DISPLAY-43 LINE 10 COLUMN 12 PIC ZZZ9
+           10  GRID-DISPLAY-43 LINE 16 COLUMN 12 PIC ZZZ9
                FROM GRID-CELL (4, 3)
                FOREGROUND-COLOR IS COLOUR(21).
-           10  GRID-DISPLAY-44 LINE 10 COLUMN 17 PIC ZZZ9
+           10  GRID-DISPLAY-44 LINE 16 COLUMN 17 PIC ZZZ9
                FROM GRID-CELL (4, 4)
                FOREGROUND-COLOR IS COLOUR(22).
-           10  GRID-DISPLAY-45 LINE 10 COLUMN 22 PIC ZZZ9
+           10  GRID-DISPLAY-45 LINE 16 COLUMN 22 PIC ZZZ9
                FROM GRID-CELL (4, 5)
                FOREGROUND-COLOR IS COLOUR(23).
-           10  GRID-DISPLAY-46 LINE 10 COLUMN 27 PIC ZZZ9
+           10  GRID-DISPLAY-46 LINE 16 COLUMN 27 PIC ZZZ9
                FROM GRID-CELL (4, 6)
                FOREGROUND-COLOR IS COLOUR(24).
-           10  GRID-DISPLAY-51 LINE 12 COLUMN 2 PIC ZZZ9
+           10  GRID-DISPLAY-51 LINE 18 COLUMN 2 PIC ZZZ9
                FROM GRID-CELL (5, 1)
                FOREGROUND-COLOR IS COLOUR(25).
-           10  GRID-DISPLAY-52 LINE 12 COLUMN 7 PIC ZZZ9
+           10  GRID-DISPLAY-52 LINE 18 COLUMN 7 PIC ZZZ9
                FROM GRID-CELL (5, 2)
                FOREGROUND-COLOR IS COLOUR(26).
-           10  GRID-DISPLAY-53 LINE 12 COLUMN 12 PIC ZZZ9
+           10  GRID-DISPLAY-53 LINE 18 COLUMN 12 PIC ZZZ9
                FROM GRID-CELL (5, 3)
                FOREGROUND-COLOR IS COLOUR(27).
-           10  GRID-DISPLAY-54 LINE 12 COLUMN 17 PIC ZZZ9
+           10  GRID-DISPLAY-54 LINE 18 COLUMN 17 PIC ZZZ9
                FROM GRID-CELL (5, 4)
                FOREGROUND-COLOR IS COLOUR(28).
-           10  GRID-DISPLAY-55 LINE 12 COLUMN 22 PIC ZZZ9
+           10  GRID-DISPLAY-55 LINE 18 COLUMN 22 PIC ZZZ9
                FROM GRID-CELL (5, 5)
                FOREGROUND-COLOR IS COLOUR(29).
-           10  GRID-DISPLAY-56 LINE 12 COLUMN 27 PIC ZZZ9
+           10  GRID-DISPLAY-56 LINE 18 COLUMN 27 PIC ZZZ9
                FROM GRID-CELL (5, 6)
                FOREGROUND-COLOR IS COLOUR(30).
-           10  GRID-DISPLAY-61 LINE 14 COLUMN 2 PIC ZZZ9
+           10  GRID-DISPLAY-61 LINE 20 COLUMN 2 PIC ZZZ9
                FROM GRID-CELL (6, 1)
                FOREGROUND-COLOR IS COLOUR(31).
-           10  GRID-DISPLAY-62 LINE 14 COLUMN 7 PIC ZZZ9
+           10  GRID-DISPLAY-62 LINE 20 COLUMN 7 PIC ZZZ9
                FROM GRID-CELL (6, 2)
                FOREGROUND-COLOR IS COLOUR(32).
-           10  GRID-DISPLAY-63 LINE 14 COLUMN 12 PIC ZZZ9
+           10  GRID-DISPLAY-63 LINE 20 COLUMN 12 PIC ZZZ9
                FROM GRID-CELL (6, 3)
                FOREGROUND-COLOR IS COLOUR(33).
-           10  GRID-DISPLAY-64 LINE 14 COLUMN 17 PIC ZZZ9
+           10  GRID-DISPLAY-64 LINE 20 COLUMN 17 PIC ZZZ9
                FROM GRID-CELL (6, 4)
                FOREGROUND-COLOR IS COLOUR(34).
-           10  GRID-DISPLAY-65 LINE 14 COLUMN 22 PIC ZZZ9
+           10  GRID-DISPLAY-65 LINE 20 COLUMN 22 PIC ZZZ9
                FROM GRID-CELL (6, 5)
                FOREGROUND-COLOR IS COLOUR(35).
-           10  GRID-DISPLAY-66 LINE 14 COLUMN 27 PIC ZZZ9
+           10  GRID-DISPLAY-66 LINE 20 COLUMN 27 PIC ZZZ9
                FROM GRID-CELL (6, 6)       
-               FOREGROUND-COLOR IS COLOUR(36).                           
-           10  LINE 16 COLUMN  4 VALUE 'CHOICE:'.
-           10  DISPLAY-UP-COMMAND    LINE 17 COLUMN 12 PIC X(9).
-           10  DISPLAY-DOWN-COMMAND  LINE 18 COLUMN 12 PIC X(9).
-           10  DISPLAY-LEFT-COMMAND  LINE 19 COLUMN 12 PIC X(9).
-           10  DISPLAY-RIGHT-COMMAND LINE 20 COLUMN 12 PIC X(9).
-           10  LINE 21 COLUMN 12 VALUE 'C - CHANGE CONTROLS'.
-           10  LINE 22 COLUMN 12 VALUE 'H - HIGH SCORES'.
-           10  LINE 23 COLUMN 12 VALUE 'Q - QUIT'.
-           10  GRID-MESSAGE LINE 24 COLUMN 4     PIC X(47).
+               FOREGROUND-COLOR IS COLOUR(36). 
+
+           10  LINE 21 COLUMN 4 VALUE '----------------------------'
+               FOREGROUND-COLOR IS 6. 
+
+           10  LINE 24 COLUMN  4 VALUE 'CHOICE:'
+               FOREGROUND-COLOR IS 6.
+           10  DISPLAY-UP-COMMAND    LINE 26 COLUMN 12 PIC X(9)
+               FOREGROUND-COLOR IS 7.
+           10  DISPLAY-DOWN-COMMAND  LINE 27 COLUMN 12 PIC X(9)
+               FOREGROUND-COLOR IS 7.
+           10  DISPLAY-LEFT-COMMAND  LINE 28 COLUMN 12 PIC X(9)
+               FOREGROUND-COLOR IS 7.
+           10  DISPLAY-RIGHT-COMMAND LINE 29 COLUMN 12 PIC X(9)
+               FOREGROUND-COLOR IS 7.
+           10  LINE 31 COLUMN 12 VALUE 'C - CHANGE CONTROLS'
+               FOREGROUND-COLOR IS 6.
+           10  LINE 32 COLUMN 12 VALUE 'H - HIGH SCORES'
+               FOREGROUND-COLOR IS 6.
+           10  LINE 33 COLUMN 12 VALUE 'Q - QUIT'
+               FOREGROUND-COLOR IS 6.
+           10  GRID-MESSAGE LINE 35 COLUMN 4     PIC X(47)
+               FOREGROUND-COLOR IS 6.
            05  GRID-INPUT.
-               10  USER-INPUT LINE 16 COLUMN 12    PIC X(10)
+               10  USER-INPUT LINE 24 COLUMN 12    PIC X(10)
                    USING USER-ENTRY.
 
        01  CONTROLS-SCREEN.
            05  BLANK SCREEN.
-           05  LINE 2 COLUMN 10 VALUE '2048'.
-           05  LINE 4 COLUMN 4 VALUE 'CUSTOMIZE CONTROLS BELOW'.
-           05  LINE 6 COLUMN 4 VALUE 'SLIDE UP:'.
-           05  SET-CONTROL-UP LINE 6 COLUMN 20 PIC X
-               USING CONTROL-UP.
-           05  LINE 7 COLUMN 4 VALUE 'SLIDE DOWN:'.
-           05  SET-CONTROL-DOWN LINE 7 COLUMN 20 PIC X
-               USING CONTROL-DOWN.
-           05  LINE 8 COLUMN 4 VALUE 'SLIDE LEFT:'.
-           05  SET-CONTROL-LEFT LINE 8 COLUMN 20 PIC X
-               USING CONTROL-LEFT.
-           05  LINE 9 COLUMN 4 VALUE 'SLIDE RIGHT:'.
-           05  SET-CONTROL-RIGHT LINE 9 COLUMN 20 PIC X
-               USING CONTROL-RIGHT.
+      *     05  LINE 2 COLUMN 10 VALUE '2048'.
+           05  LINE 1 COLUMN 4 VALUE '----------------------------'
+               FOREGROUND-COLOR IS 6. 
+           05  LINE 2 COLUMN 6 VALUE " ___   ___  _  _   ___ "
+               FOREGROUND-COLOR IS 5.
+           05  LINE 3 COLUMN 6 VALUE "|__ \ / _ \| || | / _ \"
+               FOREGROUND-COLOR IS 5.
+           05  LINE 4 COLUMN 6 VALUE "   ) | | | | || || (_) |"
+               FOREGROUND-COLOR IS 5.
+           05  LINE 5 COLUMN 6 VALUE "  / /| | | |__   _> _ < "
+               FOREGROUND-COLOR IS 5.
+           05  LINE 6 COLUMN 6 VALUE " / /_| |_| |  | || (_) |"
+               FOREGROUND-COLOR IS 5.
+           05  LINE 7 COLUMN 6 VALUE "|____|\___/   |_| \___/" 
+               FOREGROUND-COLOR IS 5.
+           05  LINE 9 COLUMN 4 VALUE '----------------------------'
+               FOREGROUND-COLOR IS 6. 
+               
+           05  LINE 10 COLUMN 4 VALUE 'CUSTOMIZE CONTROLS BELOW'
+               FOREGROUND-COLOR IS 6. 
+           05  LINE 12 COLUMN 4 VALUE 'SLIDE UP:'
+               FOREGROUND-COLOR IS 6. 
+           05  SET-CONTROL-UP LINE 12 COLUMN 20 PIC X
+               USING CONTROL-UP
+               FOREGROUND-COLOR IS 7. 
+           05  LINE 14 COLUMN 4 VALUE 'SLIDE DOWN:'
+               FOREGROUND-COLOR IS 6. 
+           05  SET-CONTROL-DOWN LINE 14 COLUMN 20 PIC X
+               USING CONTROL-DOWN
+               FOREGROUND-COLOR IS 7. 
+           05  LINE 16 COLUMN 4 VALUE 'SLIDE LEFT:'
+               FOREGROUND-COLOR IS 6. 
+           05  SET-CONTROL-LEFT LINE 16 COLUMN 20 PIC X
+               USING CONTROL-LEFT
+               FOREGROUND-COLOR IS 7. 
+           05  LINE 18 COLUMN 4 VALUE 'SLIDE RIGHT:'
+               FOREGROUND-COLOR IS 6. 
+           05  SET-CONTROL-RIGHT LINE 18 COLUMN 20 PIC X
+               USING CONTROL-RIGHT
+               FOREGROUND-COLOR IS 7. 
 
        01  HIGH-SCORE-SCREEN.
            05  BLANK SCREEN.
-           05  LINE 2 COLUMN 10 VALUE '2048'.
-           05  LINE 4 COLUMN 4 VALUE 'HIGH SCORES'.
-           05  LINE 6 COLUMN 4 VALUE 'SCORE  YEAR-MO-DY HR-MM'.
-           05  HIGH-SCORE-1 LINE  7 COLUMN 4 PIC X(23).
-           05  HIGH-SCORE-2 LINE  8 COLUMN 4 PIC X(23).
-           05  HIGH-SCORE-3 LINE  9 COLUMN 4 PIC X(23).
-           05  HIGH-SCORE-4 LINE 10 COLUMN 4 PIC X(23).
-           05  HIGH-SCORE-5 LINE 11 COLUMN 4 PIC X(23).
-           05  LINE 13 COLUMN 4 VALUE 'PRESS ENTER TO EXIT'.
-           05  HS-INPUT LINE 13 COLUMN 24    PIC X(10)
+           05  LINE 1 COLUMN 4 VALUE '----------------------------'
+               FOREGROUND-COLOR IS 6. 
+           05  LINE 2 COLUMN 6 VALUE " ___   ___  _  _   ___ "
+               FOREGROUND-COLOR IS 5.
+           05  LINE 3 COLUMN 6 VALUE "|__ \ / _ \| || | / _ \"
+               FOREGROUND-COLOR IS 5.
+           05  LINE 4 COLUMN 6 VALUE "   ) | | | | || || (_) |"
+               FOREGROUND-COLOR IS 5.
+           05  LINE 5 COLUMN 6 VALUE "  / /| | | |__   _> _ < "
+               FOREGROUND-COLOR IS 5.
+           05  LINE 6 COLUMN 6 VALUE " / /_| |_| |  | || (_) |"
+               FOREGROUND-COLOR IS 5.
+           05  LINE 7 COLUMN 6 VALUE "|____|\___/   |_| \___/" 
+               FOREGROUND-COLOR IS 5.
+           05  LINE 9 COLUMN 4 VALUE '----------------------------'
+               FOREGROUND-COLOR IS 6. 
+
+           05  LINE 10 COLUMN 12 VALUE 'HIGH SCORES'
+               FOREGROUND-COLOR IS 5. 
+           05  LINE 11 COLUMN 4 VALUE '----------------------------'
+               FOREGROUND-COLOR IS 6. 
+           05  LINE 12 COLUMN 6 VALUE 'SCORE  YEAR-MO-DY HR-MM'
+               FOREGROUND-COLOR IS 6. 
+           05  HIGH-SCORE-1 LINE  13 COLUMN 6 PIC X(23)
+               FOREGROUND-COLOR IS 7. 
+           05  HIGH-SCORE-2 LINE  14 COLUMN 6 PIC X(23)
+               FOREGROUND-COLOR IS 7. 
+           05  HIGH-SCORE-3 LINE  15 COLUMN 6 PIC X(23)
+               FOREGROUND-COLOR IS 7. 
+           05  HIGH-SCORE-4 LINE  16 COLUMN 6 PIC X(23)
+               FOREGROUND-COLOR IS 7. 
+           05  HIGH-SCORE-5 LINE  17 COLUMN 6 PIC X(23)
+               FOREGROUND-COLOR IS 7. 
+           05  LINE 18 COLUMN 4 VALUE 'PRESS ENTER TO EXIT'
+               FOREGROUND-COLOR IS 6. 
+           05  HS-INPUT LINE 18 COLUMN 24    PIC X(10)
                USING USER-ENTRY.
 
        PROCEDURE DIVISION.
